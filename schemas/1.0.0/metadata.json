@@ -1,0 +1,19 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": ["scope", "resource_id", "schema_url"],
+    "properties": {
+        "scope": {
+            "type": "string",
+            "description": "Telemetry library exporting the data"
+        },
+        "resource_id": {
+            "type": "string",
+            "description": "The id of the resource"
+        },
+        "schema_url": {
+            "type": "string",
+            "description": "The url of the schema"
+        }
+    }
+}

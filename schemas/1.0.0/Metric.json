@@ -1,0 +1,75 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/restsense/specification/blob/main/schemas/1.0.0/Trace.json",
+    "type": "object",
+    "required": [
+        "name",
+        "description",
+        "unit",
+        "type",
+        "data",
+        "metadata"
+    ],
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "The name of the trace"
+        },
+        "description": {
+            "type": "string",
+            "description": "The description of the trace"
+        },
+        "unit": {
+            "type": "string",
+            "description": "The unit of the trace"
+        },
+        "type": {
+            "type": "string",
+            "description": "The type of the trace",
+            "enum": ["sum", "histogram", "gauge", "summary"]
+        },
+        "data": {
+            "type": "array",
+            "description": "The data of the trace",
+            "items": { "$ref": "#/definitions/datapoint"}
+        },
+        "metadata": { "$ref": "metadata.json" }
+    },
+    "definitions": {
+        "datapoint": {
+            "type": "object",
+            "required": [ "from", "to", "value", "attributes"],
+            "properties": {
+                "from": {
+                    "type": "number",
+                    "description": "The start time of the datapoint"
+                },
+                "to": {
+                    "type": "number",
+                    "description": "The end time of the datapoint"
+                },
+                "value": {
+                    "type": "number",
+                    "description": "The value of the datapoint"
+                },
+                "spans": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "attributes": {
+                    "type": "object",
+                    "description": "The attributes of the datapoint",
+                    "additionalProperties": {
+                        "oneOf": [
+                            { "type": "string" },
+                            { "type": "number" },
+                            { "type": "boolean" }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

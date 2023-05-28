@@ -1,0 +1,88 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$id": "https://github.com/restsense/specification/blob/main/schemas/1.0.0/Resource.json",
+    "type": "object",
+    "required": [
+        "service.name",
+        "service.version",
+        "service.ip_addr",
+        "telemetry.sdk.language",
+        "telemetry.sdk.name",
+        "telemetry.sdk.version",
+        "process.pid",
+        "process.owner",
+        "process.executable.name",
+        "process.executable.path",
+        "process.runtime.name",
+        "process.runtime.version",
+        "process.runtime.description",
+        "process.command",
+        "process.command_args"
+    ],
+    "properties": {
+        "service.name": {
+            "type": "string",
+            "description": "The name of the service"
+        },
+        "service.version": {
+            "type": "string",
+            "description": "The version of the service"
+        },
+        "service.ip_addr": {
+            "type": "string", 
+            "description": "The IP address of the service"
+        },
+        "telemetry.sdk.language": {
+            "type": "string",
+            "description": "The name of the language the SDK is instrumented in"
+        },
+        "telemetry.sdk.name": {
+            "type": "string",
+            "description": "The name of the SDK"
+        },
+        "telemetry.sdk.version": {
+            "type": "string",
+            "description": "The version string of the SDK"
+        },
+        "process.pid": {
+            "type": "string",
+            "description": "The PID of the process"
+        },
+        "process.owner": {
+            "type": "string",
+            "description": "The username of the process owner"
+        },
+        "process.executable.name": {
+            "type": "string",
+            "description": "The name of the process executable"
+        },
+        "process.executable.path": {
+            "type": "string",
+            "description": "The full path to the process executable"
+        },
+        "process.runtime.name": {
+            "type": "string",
+            "description": "The name of the runtime"
+        },
+        "process.runtime.version": {
+            "type": "string",
+            "description": "The version of the runtime"
+        },
+        "process.runtime.description": {
+            "type": "string",
+            "description": "The description of the runtime"
+        },
+        "process.command": {
+            "type": "string",
+            "description": "The full command used to launch the process, including the command name"
+        },
+        "process.command_args": {
+            "description": "The command arguments (including the command name) used to launch the process",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+
+}
